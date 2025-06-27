@@ -1,0 +1,88 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "politics",
+        "crypto",
+        "computer science",
+        "geopolitics",
+        "trump",
+        "nbaplayoffs"
+      ]
+    },
+    "eventStatus": {
+      "type": "enumeration",
+      "enum": [
+        "open",
+        "closed",
+        "cancelled",
+        "resolved"
+      ]
+    },
+    "closedDate": {
+      "type": "datetime"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "yesPrive": {
+      "type": "decimal"
+    },
+    "noprice": {
+      "type": "decimal"
+    },
+    "volume": {
+      "type": "decimal"
+    },
+    "prediction": {
+      "type": "decimal"
+    },
+    "direction": {
+      "type": "enumeration",
+      "enum": [
+        "buy ",
+        "sell"
+      ]
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "outcome": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "yes ",
+        "no",
+        "invalid"
+      ]
+    }
+  }
+}
