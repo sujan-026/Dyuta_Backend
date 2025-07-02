@@ -487,31 +487,36 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
         'nbaplayoffs',
       ]
     >;
-    closedDate: Schema.Attribute.DateTime;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    creationDate: Schema.Attribute.DateTime;
+    creatorId: Schema.Attribute.String;
+    currentNoProbability: Schema.Attribute.Decimal;
+    currentYesProbability: Schema.Attribute.Decimal;
     description: Schema.Attribute.Blocks;
-    direction: Schema.Attribute.Enumeration<['buy ', 'sell']>;
-    eventStatus: Schema.Attribute.Enumeration<
-      ['open', 'closed', 'cancelled', 'resolved']
-    >;
+    endTime: Schema.Attribute.DateTime;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::event.event'> &
       Schema.Attribute.Private;
-    noprice: Schema.Attribute.Decimal;
-    outcome: Schema.Attribute.Enumeration<['pending', 'yes ', 'no', 'invalid']>;
-    prediction: Schema.Attribute.Decimal;
+    noCount: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
-    quantity: Schema.Attribute.Integer;
+    resolutionSource: Schema.Attribute.Text;
+    resolutionTime: Schema.Attribute.DateTime;
+    result: Schema.Attribute.String;
     slug: Schema.Attribute.UID;
+    startTime: Schema.Attribute.DateTime;
+    state: Schema.Attribute.Boolean;
+    tags: Schema.Attribute.Enumeration<
+      ['Politics', 'World Affairs', 'Defense & Military']
+    >;
     title: Schema.Attribute.String;
+    totalVolume: Schema.Attribute.BigInteger;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    volume: Schema.Attribute.Decimal;
-    yesPrive: Schema.Attribute.Decimal;
+    yesCount: Schema.Attribute.BigInteger;
   };
 }
 

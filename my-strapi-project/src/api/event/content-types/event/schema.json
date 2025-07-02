@@ -31,17 +31,40 @@
         "nbaplayoffs"
       ]
     },
-    "eventStatus": {
+    "tags": {
       "type": "enumeration",
       "enum": [
-        "open",
-        "closed",
-        "cancelled",
-        "resolved"
+        "Politics",
+        "World Affairs",
+        "Defense & Military"
       ]
     },
-    "closedDate": {
+    "state": {
+      "type": "boolean"
+    },
+    "creationDate": {
       "type": "datetime"
+    },
+    "startTime": {
+      "type": "datetime"
+    },
+    "endTime": {
+      "type": "datetime"
+    },
+    "resolutionTime": {
+      "type": "datetime"
+    },
+    "result": {
+      "type": "string"
+    },
+    "yesCount": {
+      "type": "biginteger"
+    },
+    "noCount": {
+      "type": "biginteger"
+    },
+    "totalVolume": {
+      "type": "biginteger"
     },
     "image": {
       "type": "media",
@@ -53,36 +76,17 @@
         "audios"
       ]
     },
-    "yesPrive": {
+    "currentYesProbability": {
       "type": "decimal"
     },
-    "noprice": {
+    "currentNoProbability": {
       "type": "decimal"
     },
-    "volume": {
-      "type": "decimal"
+    "creatorId": {
+      "type": "string"
     },
-    "prediction": {
-      "type": "decimal"
-    },
-    "direction": {
-      "type": "enumeration",
-      "enum": [
-        "buy ",
-        "sell"
-      ]
-    },
-    "quantity": {
-      "type": "integer"
-    },
-    "outcome": {
-      "type": "enumeration",
-      "enum": [
-        "pending",
-        "yes ",
-        "no",
-        "invalid"
-      ]
+    "resolutionSource": {
+      "type": "text"
     }
   }
 }
