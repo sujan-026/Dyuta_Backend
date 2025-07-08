@@ -241,6 +241,7 @@ async function importSeedData() {
   await setPublicPermissions({
     article: ['find', 'findOne'],
     category: ['find', 'findOne'],
+    subcategory: ['find', 'findOne'],
     author: ['find', 'findOne'],
     global: ['find', 'findOne'],
     about: ['find', 'findOne'],

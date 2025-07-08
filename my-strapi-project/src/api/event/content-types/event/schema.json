@@ -21,23 +21,10 @@
       "type": "blocks"
     },
     "category": {
-      "type": "enumeration",
-      "enum": [
-        "politics",
-        "crypto",
-        "computer science",
-        "geopolitics",
-        "trump",
-        "nbaplayoffs"
-      ]
+      "type": "string"
     },
     "tags": {
-      "type": "enumeration",
-      "enum": [
-        "Politics",
-        "World Affairs",
-        "Defense & Military"
-      ]
+      "type": "json"
     },
     "state": {
       "type": "boolean"
@@ -87,6 +74,33 @@
     },
     "resolutionSource": {
       "type": "text"
+    },
+    "marketId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "volumeChange": {
+      "type": "integer"
+    },
+    "lastUpdated": {
+      "type": "datetime"
+    },
+    "priceHistory": {
+      "type": "json"
+    },
+    "change24h": {
+      "type": "integer"
+    },
+    "isHot": {
+      "type": "boolean"
+    },
+    "imagePath": {
+      "type": "string"
+    },
+    "Approved": {
+      "type": "boolean"
     }
   }
 }
