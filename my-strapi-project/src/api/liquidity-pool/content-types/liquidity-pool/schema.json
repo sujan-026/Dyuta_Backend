@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "liquidity_pools",
+  "info": {
+    "singularName": "liquidity-pool",
+    "pluralName": "liquidity-pools",
+    "displayName": "LiquidityPool"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "poolId": {
+      "type": "uid"
+    },
+    "event_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "liquidity_pools"
+    },
+    "reserveA": {
+      "type": "decimal"
+    },
+    "reserveB": {
+      "type": "decimal"
+    },
+    "LMSR_b_param": {
+      "type": "decimal"
+    },
+    "totalLPShareTokens": {
+      "type": "decimal"
+    },
+    "lastUpdated": {
+      "type": "datetime"
+    },
+    "token_a_ids": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::outcome.outcome"
+    },
+    "token_b_ids": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::outcome.outcome"
+    },
+    "liquidity_providers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::liquidity-provider.liquidity-provider",
+      "mappedBy": "pool_id"
+    }
+  }
+}

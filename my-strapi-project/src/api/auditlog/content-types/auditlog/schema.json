@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "auditlogs",
+  "info": {
+    "singularName": "auditlog",
+    "pluralName": "auditlogs",
+    "displayName": "Auditlog"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "logID": {
+      "type": "uid"
+    },
+    "user_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "auditlogs"
+    },
+    "ActionType": {
+      "type": "enumeration",
+      "enum": [
+        "Login",
+        "Trade",
+        "MarketCreate",
+        "Withdrawal",
+        "Resolution"
+      ]
+    },
+    "timeStamp": {
+      "type": "datetime"
+    },
+    "details": {
+      "type": "string"
+    },
+    "IPAddress": {
+      "type": "biginteger"
+    }
+  }
+}

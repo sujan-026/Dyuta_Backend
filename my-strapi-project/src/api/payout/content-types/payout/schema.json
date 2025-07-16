@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payouts",
+  "info": {
+    "singularName": "payout",
+    "pluralName": "payouts",
+    "displayName": "Payout"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "payoutID": {
+      "type": "uid"
+    },
+    "event_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "payouts"
+    },
+    "user_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "payouts"
+    },
+    "outcome_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::outcome.outcome",
+      "inversedBy": "payouts"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "timeStamp": {
+      "type": "datetime"
+    },
+    "payoutStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Completed",
+        "Pending",
+        "Failed"
+      ]
+    }
+  }
+}
