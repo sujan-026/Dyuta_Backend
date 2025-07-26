@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "outcomes",
+  "info": {
+    "singularName": "outcome",
+    "pluralName": "outcomes",
+    "displayName": "outcome"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "outcomeId": {
+      "type": "uid"
+    },
+    "eventId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "outcomes"
+    },
+    "outcomeName": {
+      "type": "string"
+    },
+    "currentPrice": {
+      "type": "decimal"
+    },
+    "sharesOutstanding": {
+      "type": "decimal"
+    },
+    "isWinningOutcome": {
+      "type": "boolean",
+      "default": false
+    },
+    "trades": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::trade.trade",
+      "mappedBy": "outcome_id"
+    },
+    "payouts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::payout.payout",
+      "mappedBy": "outcome_id"
+    },
+    "market_histories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::market-history.market-history",
+      "mappedBy": "outcome_id"
+    }
+  }
+}

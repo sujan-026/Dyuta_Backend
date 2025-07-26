@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_books",
+  "info": {
+    "singularName": "order-book",
+    "pluralName": "order-books",
+    "displayName": "OrderBook"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "orderId": {
+      "type": "uid"
+    },
+    "side": {
+      "type": "enumeration",
+      "enum": [
+        "Buy",
+        "Sell"
+      ]
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "quantity": {
+      "type": "decimal"
+    },
+    "remainingQuantity": {
+      "type": "decimal"
+    },
+    "currentTimeStamp": {
+      "type": "datetime"
+    },
+    "orderBookStatus": {
+      "type": "enumeration",
+      "default": "Active",
+      "enum": [
+        "Active",
+        "Partially-filled",
+        "Filled",
+        "Cancelled"
+      ]
+    },
+    "event_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "order_books"
+    },
+    "user_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "order_books"
+    }
+  }
+}

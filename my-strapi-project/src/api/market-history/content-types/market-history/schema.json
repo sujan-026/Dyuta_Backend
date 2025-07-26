@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "market_histories",
+  "info": {
+    "singularName": "market-history",
+    "pluralName": "market-histories",
+    "displayName": "MarketHistory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "historyID": {
+      "type": "uid"
+    },
+    "event_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "market_histories"
+    },
+    "outcome_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::outcome.outcome",
+      "inversedBy": "market_histories"
+    },
+    "timeStamp": {
+      "type": "datetime"
+    },
+    "openPrice": {
+      "type": "decimal"
+    },
+    "highPrice": {
+      "type": "decimal"
+    },
+    "lowPrice": {
+      "type": "decimal"
+    },
+    "closePrice": {
+      "type": "decimal"
+    },
+    "volume": {
+      "type": "decimal"
+    }
+  }
+}

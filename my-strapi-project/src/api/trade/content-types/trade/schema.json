@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trades",
+  "info": {
+    "singularName": "trade",
+    "pluralName": "trades",
+    "displayName": "Trade"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tradeId": {
+      "type": "uid"
+    },
+    "userId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "trades"
+    },
+    "event_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "trades"
+    },
+    "outcome_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::outcome.outcome",
+      "inversedBy": "trades"
+    },
+    "tradeType": {
+      "type": "enumeration",
+      "enum": [
+        "Buy",
+        "Sell"
+      ]
+    },
+    "quantity": {
+      "type": "decimal"
+    },
+    "pricePerShare": {
+      "type": "decimal"
+    },
+    "totalCost": {
+      "type": "decimal"
+    },
+    "timeStamp": {
+      "type": "datetime"
+    },
+    "tradeStatus": {
+      "type": "enumeration",
+      "default": "Executed",
+      "enum": [
+        "Executed",
+        "Pending",
+        "Failed",
+        "Cancelled "
+      ]
+    }
+  }
+}
