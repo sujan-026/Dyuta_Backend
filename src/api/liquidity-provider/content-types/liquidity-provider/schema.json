@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "liquidity_providers",
+  "info": {
+    "singularName": "liquidity-provider",
+    "pluralName": "liquidity-providers",
+    "displayName": "LiquidityProvider"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "LPID": {
+      "type": "uid"
+    },
+    "amountProvided": {
+      "type": "decimal"
+    },
+    "user_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "liquidity_providers"
+    },
+    "pool_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::liquidity-pool.liquidity-pool",
+      "inversedBy": "liquidity_providers"
+    },
+    "lPShareTokens": {
+      "type": "decimal"
+    },
+    "earnedFees": {
+      "type": "decimal"
+    },
+    "timeStamp": {
+      "type": "datetime"
+    }
+  }
+}

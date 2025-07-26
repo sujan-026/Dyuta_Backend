@@ -1,0 +1,162 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "eventId": {
+      "type": "uid"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "category": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "json"
+    },
+    "state": {
+      "type": "boolean"
+    },
+    "creationDate": {
+      "type": "datetime"
+    },
+    "startTime": {
+      "type": "datetime"
+    },
+    "endTime": {
+      "type": "datetime"
+    },
+    "resolutionTime": {
+      "type": "datetime"
+    },
+    "result": {
+      "type": "string"
+    },
+    "yesCount": {
+      "type": "biginteger"
+    },
+    "noCount": {
+      "type": "biginteger"
+    },
+    "totalVolume": {
+      "type": "biginteger"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "currentYesProbability": {
+      "type": "decimal"
+    },
+    "currentNoProbability": {
+      "type": "decimal"
+    },
+    "resolutionSource": {
+      "type": "text"
+    },
+    "marketId": {
+      "type": "string"
+    },
+    "volumeChange": {
+      "type": "integer"
+    },
+    "lastUpdated": {
+      "type": "datetime"
+    },
+    "priceHistory": {
+      "type": "json"
+    },
+    "change24h": {
+      "type": "integer"
+    },
+    "isHot": {
+      "type": "boolean"
+    },
+    "imagePath": {
+      "type": "string"
+    },
+    "Approved": {
+      "type": "boolean"
+    },
+    "resolutionCriteria": {
+      "type": "string"
+    },
+    "marketStatus": {
+      "type": "enumeration",
+      "default": "Open",
+      "enum": [
+        "Open",
+        "Closed",
+        "Resolved",
+        "Cancelled",
+        "Disputed"
+      ]
+    },
+    "liquidityParameter": {
+      "type": "decimal"
+    },
+    "initialLiquidity": {
+      "type": "decimal"
+    },
+    "creatorId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "events"
+    },
+    "outcomes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::outcome.outcome",
+      "mappedBy": "eventId"
+    },
+    "trades": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::trade.trade",
+      "mappedBy": "event_id"
+    },
+    "order_books": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order-book.order-book",
+      "mappedBy": "event_id"
+    },
+    "liquidity_pools": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::liquidity-pool.liquidity-pool",
+      "mappedBy": "event_id"
+    },
+    "payouts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::payout.payout",
+      "mappedBy": "event_id"
+    },
+    "market_histories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::market-history.market-history",
+      "mappedBy": "event_id"
+    }
+  }
+}

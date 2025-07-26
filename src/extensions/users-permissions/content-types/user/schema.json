@@ -1,0 +1,133 @@
+{
+  "kind": "collectionType",
+  "collectionName": "up_users",
+  "info": {
+    "name": "user",
+    "description": "",
+    "singularName": "user",
+    "pluralName": "users",
+    "displayName": "User"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "username": {
+      "type": "string",
+      "minLength": 3,
+      "unique": true,
+      "configurable": false,
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "minLength": 6,
+      "configurable": false,
+      "required": true
+    },
+    "provider": {
+      "type": "string",
+      "configurable": false
+    },
+    "password": {
+      "type": "password",
+      "minLength": 6,
+      "configurable": false,
+      "private": true,
+      "searchable": false
+    },
+    "resetPasswordToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true,
+      "searchable": false
+    },
+    "confirmationToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true,
+      "searchable": false
+    },
+    "confirmed": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "blocked": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "role": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.role",
+      "inversedBy": "users",
+      "configurable": false
+    },
+    "userId": {
+      "type": "uid"
+    },
+    "accountStatus": {
+      "type": "enumeration",
+      "default": "Active",
+      "enum": [
+        "Active",
+        "Inactive",
+        "Suspended"
+      ]
+    },
+    "lastLogin": {
+      "type": "datetime"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-balance.user-balance",
+      "inversedBy": "userId"
+    },
+    "events": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event.event",
+      "mappedBy": "creatorId"
+    },
+    "trades": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::trade.trade",
+      "mappedBy": "userId"
+    },
+    "order_books": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order-book.order-book",
+      "mappedBy": "user_id"
+    },
+    "transcations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transcation.transcation",
+      "mappedBy": "user_id"
+    },
+    "liquidity_providers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::liquidity-provider.liquidity-provider",
+      "mappedBy": "user_id"
+    },
+    "payouts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::payout.payout",
+      "mappedBy": "user_id"
+    },
+    "auditlogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::auditlog.auditlog",
+      "mappedBy": "user_id"
+    }
+  }
+}

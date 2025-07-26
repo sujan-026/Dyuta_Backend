@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_tags",
+  "info": {
+    "displayName": "Tag",
+    "description": "A tag for categorizing content"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "color": {
+      "type": "string"
+    }
+  }
+} 
